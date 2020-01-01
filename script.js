@@ -70,10 +70,6 @@ function isEmailValid(email, message) {
 inputForm.addEventListener('submit', (event) => {
   var counter = 0;
 
-  if (showingErrors) {
-    event.preventDefault();
-    return
-  }
   isBoxValid(inputFirstName, allErrorMessages[0]) ? counter++ : null;
   isBoxValid(inputLastName, allErrorMessages[1]) ? counter++ : null;
   isEmailValid(inputEmail, allErrorMessages[2]) ? counter++ : null;
@@ -81,6 +77,7 @@ inputForm.addEventListener('submit', (event) => {
 
   // submit form if all input fields are valid
   if (counter == 4) {
+    showingErrors = false;
     return
   }
 
