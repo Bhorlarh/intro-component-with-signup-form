@@ -16,6 +16,11 @@ var allErrorMessages =
 
 // create and show error messages
 function createError(field, message) {
+
+    // end function if errors are already visible
+    if (field.classList.value.includes("alert-icon")) {
+      return
+    }
     var errMsg  = document.createElement("h6");
     errMsg.classList.add("red", "error")
     errMsg.textContent = message;
